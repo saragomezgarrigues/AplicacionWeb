@@ -25,7 +25,7 @@
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categorías<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="<?php echo base_url()?>Categoria/crear">Crear una categoría</a></li>
-          <li><a href="#">Listar categorías</a></li>
+          <li><a href="<?php echo base_url()?>Categoria/listar">Listar categorías</a></li>
           <li><a href="#">Borrar categorías</a></li>
         </ul>
       </li>
