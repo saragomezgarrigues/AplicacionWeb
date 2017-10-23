@@ -22,6 +22,11 @@ class Categoria extends CI_Controller{
     }
     
     public function borrar(){
-        
+        //En el caso de que el cliente desee borrar uan categoria, lo que se va a 
+        //mostrar son los resultados de todas las categorias y que haga click en la categoria 
+        //que más le guste :D
+        $this->load->model('categoria_model','',true);
+        $datos['categorias'] = $this->categoria_model->listData();
+        getplantailla($this, 'categoria/borrar',$datos);
     }
 }

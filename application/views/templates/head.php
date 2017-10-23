@@ -26,7 +26,7 @@
         <ul class="dropdown-menu">
           <li><a href="<?php echo base_url()?>Categoria/crear">Crear una categoría</a></li>
           <li><a href="<?php echo base_url()?>Categoria/listar">Listar categorías</a></li>
-          <li><a href="#">Borrar categorías</a></li>
+          <li><a href="<?php echo base_url()?>Categoria/borrar">Borrar categorías</a></li>
         </ul>
       </li>
       <li><a href="#">Page 3</a></li>
