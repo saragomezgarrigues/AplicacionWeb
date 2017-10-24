@@ -1,7 +1,5 @@
 <script>
    $(document).on("click", "a.enlace", function(){
-    alert("It works!");
-    
     bootbox.confirm({
     title: "¿Estás seguro?",
     message: "¿Estás seguro de borrar la categoría?",

@@ -26,4 +26,13 @@ class Producto extends CI_Controller{
         $datos['productos'] = $this->producto_model->getData();
         getplantailla($this, 'producto/listar',$datos);
     }
+    
+    public function borrar(){
+        //Función que permite al cliente ver el listado de todos los productos que tiene puestos
+        //en la BBDD, más la opción de borrar ;)
+        //Esa es la función extra :D
+       $this->load->model('producto_model','',true);
+       $datos['productos'] = $this->producto_model->getData();
+       getplantailla($this,'producto/borrar',$datos);
+    }
 }

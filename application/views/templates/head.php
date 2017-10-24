@@ -20,7 +20,7 @@
         <ul class="dropdown-menu">
           <li><a href="<?php echo base_url()?>Producto/crear">Crear un producto</a></li>
           <li><a href="<?php echo base_url()?>Producto/listar">Listar productos</a></li>
-          <li><a href="#">Borrar productos</a></li>
+          <li><a href="<?php echo base_url()?>Producto/borrar">Borrar productos</a></li>
         </ul>
       </li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categorías<span class="caret"></span></a>
