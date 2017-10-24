@@ -1,7 +1,6 @@
 <script>
     $(document).ready(function(){
        $('#btnCrear').on('click',function(){
-            alert("Se ha pulsado el boton de crear. A validar los datos! :D");
             var catRegex= /^([A-ZÁÉÍÓÚÑñ])?[a-záéíóúñ?¿ºª ]{1,25}$/;
             var data = $('#nombre').val();
             if(catRegex.test(data)){
@@ -13,28 +12,30 @@
                 conexion.open('POST','<?php echo base_url()?>Categoria/crearDato',true);
                 conexion.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 		conexion.send(datosSerializados);
-		conexion.onreadystatechange = function() {
-			if (conexion.readyState==4 && conexion.status==200) {
-				accionAJAX();
-			}
-		}
-              
+		 accionAJAX("Categoría creada correctamente.");
+	        
             }
             else{
                 $('#nombre').parent().removeClass('has-success');
                 $('#nombre').parent().addClass('has-error');
+                accionAJAX("Comprueba que todos los campos estén correctamente rellenados.");
             }
        }); 
     });
-    function accionAJAX(){
-        var textoRecibido = conexion.responseText;
-        $('.modal-body p').val(textoRecibido);
+    function accionAJAX(mensaje){
+        $('#resultado').text(mensaje);
     }
 </script>
 <div class="container">
     <h1>Bienvenido al apartado de creación de categorías</h1>
     <h5>para crear una categoría, rellena los campos del formulario</h5>
     <form class="form-horizontal" role="form" id="createCategory">
+        <div class="form-group">
+            <label for="id" class="col-sm-2 control-label">ID categoria: </label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="id" name="idCategoria">
+            </div>
+        </div>
         <div class="form-group">
             <label for="nombre" class="col-sm-2 control-label">Nombre de la categoria: </label>
             <div class="col-sm-10">
@@ -55,7 +56,7 @@
                <h4 class="modal-title">Resultado de la acción</h4>
         </div>
         <div class="modal-body">
-          <p></p>
+          <p id="resultado"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

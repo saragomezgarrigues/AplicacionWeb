@@ -1,0 +1,6 @@
+==Referencias para poder trabajar con todos los recursos necesarios== :D
+http://bootboxjs.com/examples.html => Para ver como funciona el script de bootboxjs
+https://getbootstrap.com/docs/3.3/components/#glyphicons => Para ver los simbolicos que tiene bootstrap y mucho más ;)
+
+
+
