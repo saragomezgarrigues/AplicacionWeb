@@ -11,11 +11,19 @@ class Producto extends CI_Controller{
         $explode = explode(" ) ",$_POST['categoria']);
         $data = [
           'ID'          => $_POST['id'],
-          'nombre'      => $_POST['nombre'],
+          'nombreP'      => $_POST['nombre'],
           'precio'      => $_POST['precio'],
           'IDCategoria'   => $explode[0]
         ];
         
         $this->producto_model->insert($data);
+    }
+    
+    public function listar(){
+        //Función que permite al cliente ver el listado completo de todos los productos que tiene
+        //en la BBDD.
+        $this->load->model('producto_model','',true);
+        $datos['productos'] = $this->producto_model->getData();
+        getplantailla($this, 'producto/listar',$datos);
     }
 }

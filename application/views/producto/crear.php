@@ -6,7 +6,6 @@ $(document).ready(function(){
     var nameRegex=/^([A-ZÁÉÍÓÚÑñ])?[a-záéíóúñ?¿ºª ]{1,200}$/;
     var precioRegex=/^[0-9]{1,4},[0-9]{2}$/;
     $('#btnCrear').on('click',function(){
-        alert("Se ha pulsado el boton de crear. A validar los datos!! :D");
         var contador =0;
         var precio =$('#precio').val();
         var nombre = $('#nombre').val();
@@ -30,6 +29,7 @@ $(document).ready(function(){
         }
         
         if(contador===2){
+            var formulario = document.getElementById("formulario");
             var datosSerializados = serialize(formulario);
             conexion=new XMLHttpRequest();
             conexion.open('POST','<?php echo base_url()?>Producto/crearDato',true);
@@ -78,35 +78,35 @@ function accionAJAX(mensaje){
         </select>
     </div>
   </div>     
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="button" id="btnCrear" class="btn btn-info btn-lg">Crear producto!</button>
-      
-       <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+   <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+            <button type="button"  id="btnCrear" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Crear Producto!</button>
+             <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
     
-      <!-- Modal content-->
-      <div class="modal-content">
+            <!-- Modal content-->
+            <div class="modal-content">
             <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-            <p id="mensaje"></p>
-            </div>
-         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            </div>
+               <h4 class="modal-title">Resultado de la acción</h4>
+        </div>
+        <div class="modal-body">
+          <p id="resultado"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
         </div>
     </div>
-  </div>
-   </div>
-     <!-- Fin Modal --> 
-      
+  
     </div>
   </div>
-</form>
-</div>
+   </form>
+
+  </div>
+
 
 
