@@ -35,4 +35,12 @@ class Producto extends CI_Controller{
        $datos['productos'] = $this->producto_model->getData();
        getplantailla($this,'producto/borrar',$datos);
     }
+    
+    public function delete(){
+        //Para borrar definitivamente los productos que el usuario estime oportuno.
+        $this->load->model('producto_model','',true);
+        $producto = isset($_COOKIE['Producto'])?$_COOKIE['Producto']:null;
+        $this->producto_model->borrar($producto);
+        unset($_COOKIE['Producto']);
+    }
 }

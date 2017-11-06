@@ -13,4 +13,9 @@ class Producto_model extends CI_Model{
       $result = $this->db->query($sql)->result();
       return $result;        
     }
+    
+    public function borrar($data){
+        $sql = "DELETE FROM PRODUCTOS WHERE ID=". $data;
+       return $this->db->simple_query($sql);
+    }
 }
