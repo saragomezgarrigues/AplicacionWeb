@@ -18,4 +18,16 @@ class Producto_model extends CI_Model{
         $sql = "DELETE FROM PRODUCTOS WHERE ID=". $data;
        return $this->db->simple_query($sql);
     }
+    
+    public function getLastId(){
+        $sql = "SELECT ID FROM PRODUCTOS order by ID DESC LIMIT 1";
+        $result = $this->db->query($sql)->result();
+        if($result==''){
+            return 0;
+        }
+        else{
+            return $result;
+        }
+        
+    }
 }

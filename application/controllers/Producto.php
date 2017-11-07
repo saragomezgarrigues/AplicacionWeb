@@ -1,8 +1,11 @@
 <?php
 class Producto extends CI_Controller{
     public function crear(){
+        $this->load->model('producto_model','',true);
         $this->load->model('categoria_model','',true);
         $datos['categorias'] = $this->categoria_model->listData();
+        $datos['last_id'] = $this->producto_model->getLastId();
+        //print_r($datos);
         getplantailla($this, 'producto/crear',$datos);
     }
     
