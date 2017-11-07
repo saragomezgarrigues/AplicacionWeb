@@ -33,7 +33,9 @@
         <div class="form-group">
             <label for="id" class="col-sm-2 control-label">ID categoria: </label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="id" name="idCategoria">
+                <?php foreach($idCategoria as $id): ?>
+                    <input type="text" class="form-control" id="id" value="<?php echo $id->ID +1?>" name="idCategoria" disabled>
+                <?php endforeach;?>    
             </div>
         </div>
         <div class="form-group">

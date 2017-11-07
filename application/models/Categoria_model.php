@@ -9,4 +9,15 @@ class Categoria_model extends CI_Model{
     function listData(){
         return $this->db->get('categorias')->result();
     }
+    
+    function getLastID(){
+        $sql = "SELECT ID FROM CATEGORIAS ORDER BY ID DESC LIMIT 1";
+        $result = $this->db->query($sql)->result();
+        if($result==''){
+            return 0;
+        }
+        else{
+            return $result;
+        }
+    }
 }

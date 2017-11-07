@@ -1,7 +1,10 @@
 <?php
 class Categoria extends CI_Controller{
     public function crear(){
-        getplantailla($this, 'categoria/crear');
+        //Mejora: ID de categoría rellenado automáticamente :)
+        $this->load->model('categoria_model','',true);
+        $datos['idCategoria'] = $this->categoria_model->getLastID();
+        getplantailla($this, 'categoria/crear',$datos);
     }
  
     public function crearDato(){
