@@ -38,9 +38,10 @@ class Producto extends CI_Controller{
     
     public function delete(){
         //Para borrar definitivamente los productos que el usuario estime oportuno.
+        //Método mejorado con respecto a la vez pasada :)
         $this->load->model('producto_model','',true);
-        $producto = isset($_COOKIE['Producto'])?$_COOKIE['Producto']:null;
+        $producto = $_POST['producto'];
         $this->producto_model->borrar($producto);
-        unset($_COOKIE['Producto']);
+       
     }
 }
