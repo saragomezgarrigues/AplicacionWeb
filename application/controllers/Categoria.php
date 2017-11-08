@@ -32,4 +32,11 @@ class Categoria extends CI_Controller{
         $datos['categorias'] = $this->categoria_model->listData();
         getplantailla($this, 'categoria/borrar',$datos);
     }
+    
+    public function delete(){
+        //El usuario de verdad quiere borrar la categoría que ha seleccionado.
+        $this->load->model('categoria_model','',true);
+        $borrado = $_POST['categoria'];
+        $this->categoria_model->delete($borrado);
+    }
 }

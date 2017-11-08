@@ -1,4 +1,9 @@
 <script>
+    <?php
+    /*@TODO Mejorar un poco el aspecto de los cuadros de diálogo, para que se parezcan más a los de 
+    borrar categorías ;)
+    */
+    ?>
     $(document).ready(function(){
             $('#btnBorrar').on('click',function(){
                 
@@ -43,13 +48,16 @@
     <h1>Este es el formulario de borrado de productos.</h1>
     <h4>Para borrar un producto, elige el que quieras :) </h4>
     <form id="formulario">
-        <select class="form-control" id="sel1" name="producto">
-             <option value="no">---- Producto a borrar :) -- </option>
-            <?php foreach($productos as $producto): ?>
-                <option value="<?php echo $producto->ID?>"><?php echo $producto->nombreP?></option>
-            <?php endforeach;?>
-            
-        </select>
+         <div class="form-group">
+            <select class="form-control" id="sel1" name="producto">
+                 <option value="no">---- Producto a borrar :) -- </option>
+                <?php foreach($productos as $producto): ?>
+                    <option value="<?php echo $producto->ID?>"><?php echo $producto->nombreP?></option>
+                <?php endforeach;?>
+
+            </select>
+         </div>
+         <div class="form-group">
         <button type="button"  id="btnBorrar" class="btn btn-info btn-lg" data-target="#myModal" data-toggle="modal" data-target="#myModal">Borrar Producto</button>
         <!--
             Si se quiere colocar un modal, se tiene que poner aquí :D
@@ -74,7 +82,7 @@
       
         </div>
     </div>
-        
+         </div>   
     </form>
     
 </div>

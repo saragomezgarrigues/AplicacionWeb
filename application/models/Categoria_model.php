@@ -20,4 +20,9 @@ class Categoria_model extends CI_Model{
             return $result;
         }
     }
+    function delete($borrado){
+        //@TODO mejorar esto para que sea mejor ;)
+        $sql = "DELETE FROM CATEGORIAS WHERE ID=". $borrado;
+        return $this->db->simple_query($sql);
+    }
 }
