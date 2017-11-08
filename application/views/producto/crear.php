@@ -2,13 +2,13 @@
 $(document).ready(function(){
     //@TODO Hacer esto de una forma más eficiente, sin tener que repetir tanto codigo fuente ;)
     //@TODO Poner el código de serialización de los datos de mejnor forma, para evitar tener que estar repitiendo código fuente :D
-    //@OTDO Hacer que los ID's sean autonuméricos y no tengan que estar como campo a rellenar pro el usuario.
     var nameRegex=/^([A-ZÁÉÍÓÚÑñ])?[a-záéíóúñ?¿ºª ]{1,200}$/;
     var precioRegex=/^[0-9]{1,4},[0-9]{2}$/;
     $('#btnCrear').on('click',function(){
         var contador =0;
         var precio =$('#precio').val();
         var nombre = $('#nombre').val();
+        option = $('#sel1').val();
         if(precioRegex.test(precio)){
              $('#precio').parent().removeClass('has-error');
              $('#precio').parent().addClass('has-success');
@@ -27,8 +27,8 @@ $(document).ready(function(){
             $('#nombre').parent().removeClass('has-success');
             $('#nombre').parent().addClass('has-error');
         }
-        
-        if(contador===2){
+       
+        if(contador===2 && option!=='nope'){
             var formulario = document.getElementById("formulario");
             var datosSerializados = serialize(formulario);
             conexion=new XMLHttpRequest();
@@ -38,7 +38,7 @@ $(document).ready(function(){
             accionAJAX("Producto creado correctamente");
         }
         else{
-            accionAJAX("Revisa que todos los campos estén correctamente rellenos");
+            accionAJAX("Revisa si ha elegido categoría y si los campos están correctamente rellenos");
         }
     });
 });    
@@ -53,7 +53,9 @@ function accionAJAX(mensaje){
         <div class="form-group">
     <label for="id" class="col-sm-2 control-label">ID del producto: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="id" name="id">
+        <?php foreach($last_id as $number):?>
+            <input type="text" class="form-control" id="id" name="id" value="<?php echo $number->ID + 1?>"disabled>
+      <?php endforeach;?>
     </div>
   </div>
   <div class="form-group">
@@ -72,8 +74,9 @@ function accionAJAX(mensaje){
     <label for="categoria" class="col-sm-2 control-label">Categoría: </label>
     <div class="col-sm-10">
         <select class="form-control" id="sel1" name="categoria">
+            <option value="nope">----- SELECCIONA CATEGORÍA :) -------</option>
             <?php foreach($categorias as $categoria):?>
-            <option id="<?php echo $categoria->ID?>"><?php echo $categoria->ID . " ) " ?><?php echo $categoria->nombre?></option> 
+            <option value="<?php echo $categoria->ID?>"><?php echo $categoria->nombre?></option> 
             <?php endforeach;?>
         </select>
     </div>
