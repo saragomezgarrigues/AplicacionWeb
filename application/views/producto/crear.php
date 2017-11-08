@@ -76,7 +76,7 @@ function accionAJAX(mensaje){
         <select class="form-control" id="sel1" name="categoria">
             <option value="nope">----- SELECCIONA CATEGORÍA :) -------</option>
             <?php foreach($categorias as $categoria):?>
-            <option value="<?php echo $categoria->ID?>"><?php echo $categoria->ID . " ) " ?><?php echo $categoria->nombre?></option> 
+            <option value="<?php echo $categoria->ID?>"><?php echo $categoria->nombre?></option> 
             <?php endforeach;?>
         </select>
     </div>

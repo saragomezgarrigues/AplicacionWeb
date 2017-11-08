@@ -11,14 +11,14 @@ class Producto extends CI_Controller{
     
     public function crearDato(){
         $this->load->model('producto_model','',true);
-        $explode = explode(" ) ",$_POST['categoria']);
         $data = [
           'ID'          => $_POST['id'],
           'nombreP'      => $_POST['nombre'],
           'precio'      => $_POST['precio'],
-          'IDCategoria'   => $explode[0]
+          'IDCategoria'   => $_POST['categoria']
         ];
-        
+        //print_r($data);
+        //exit("-->");
         $this->producto_model->insert($data);
     }
     
