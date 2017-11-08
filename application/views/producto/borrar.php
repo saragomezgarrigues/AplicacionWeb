@@ -1,21 +1,17 @@
 <script>
-    <?php
-    /*@TODO Mejorar un poco el aspecto de los cuadros de diálogo, para que se parezcan más a los de 
-    borrar categorías ;)
-    */
-    ?>
     $(document).ready(function(){
             $('#btnBorrar').on('click',function(){
-                
                 bootbox.confirm({
             title: "¿Estás seguro?",
             message: "¿Estás seguro de borrar el producto?",
             buttons: {
                 cancel: {
-                    label: '<i class="glyphicon glyphicon-remove"></i> Cancelar'
+                    label: '<i class="glyphicon glyphicon-remove"></i> No',
+                    className: 'btn-danger'
                 },
                 confirm: {
-                    label: '<i class="glyphicon glyphicon-ok"></i> Aceptar'
+                    label: '<i class="glyphicon glyphicon-ok"></i> Sí',
+                    className: 'btn-success'
                 }
             },
             callback: function (result) {
