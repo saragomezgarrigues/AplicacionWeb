@@ -1,21 +1,24 @@
 <?php
 class Producto extends CI_Controller{
     public function crear(){
+        $this->load->model('producto_model','',true);
         $this->load->model('categoria_model','',true);
         $datos['categorias'] = $this->categoria_model->listData();
+        $datos['last_id'] = $this->producto_model->getLastId();
+        //print_r($datos);
         getplantailla($this, 'producto/crear',$datos);
     }
     
     public function crearDato(){
         $this->load->model('producto_model','',true);
-        $explode = explode(" ) ",$_POST['categoria']);
         $data = [
           'ID'          => $_POST['id'],
           'nombreP'      => $_POST['nombre'],
           'precio'      => $_POST['precio'],
-          'IDCategoria'   => $explode[0]
+          'IDCategoria'   => $_POST['categoria']
         ];
-        
+        //print_r($data);
+        //exit("-->");
         $this->producto_model->insert($data);
     }
     
@@ -34,5 +37,14 @@ class Producto extends CI_Controller{
        $this->load->model('producto_model','',true);
        $datos['productos'] = $this->producto_model->getData();
        getplantailla($this,'producto/borrar',$datos);
+    }
+    
+    public function delete(){
+        //Para borrar definitivamente los productos que el usuario estime oportuno.
+        //Método mejorado con respecto a la vez pasada :)
+        $this->load->model('producto_model','',true);
+        $producto = $_POST['producto'];
+        $this->producto_model->borrar($producto);
+       
     }
 }

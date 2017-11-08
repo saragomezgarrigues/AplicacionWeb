@@ -9,4 +9,20 @@ class Categoria_model extends CI_Model{
     function listData(){
         return $this->db->get('categorias')->result();
     }
+    
+    function getLastID(){
+        $sql = "SELECT ID FROM CATEGORIAS ORDER BY ID DESC LIMIT 1";
+        $result = $this->db->query($sql)->result();
+        if($result==''){
+            return 0;
+        }
+        else{
+            return $result;
+        }
+    }
+    function delete($borrado){
+        //@TODO mejorar esto para que sea mejor ;)
+        $sql = "DELETE FROM CATEGORIAS WHERE ID=". $borrado;
+        return $this->db->simple_query($sql);
+    }
 }
