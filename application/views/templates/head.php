@@ -18,14 +18,15 @@
     <ul class="nav navbar-nav">
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Productos<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="<?php echo base_url()?>Producto/crear">Crear un producto</a></li>
+          <li><a href="<?php echo base_url()?>Producto/crear">Crear productos</a></li>
           <li><a href="<?php echo base_url()?>Producto/listar">Listar productos</a></li>
           <li><a href="<?php echo base_url()?>Producto/borrar">Borrar productos</a></li>
+          <li><a href="<?php echo base_url()?>Producto/modificar">Modificar productos</a></li>
         </ul>
       </li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categorías<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="<?php echo base_url()?>Categoria/crear">Crear una categoría</a></li>
+          <li><a href="<?php echo base_url()?>Categoria/crear">Crear categorías</a></li>
           <li><a href="<?php echo base_url()?>Categoria/listar">Listar categorías</a></li>
           <li><a href="<?php echo base_url()?>Categoria/borrar">Borrar categorías</a></li>
         </ul>

@@ -30,4 +30,10 @@ class Producto_model extends CI_Model{
         }
         
     }
+    
+    public function getDataProduct($producto){
+        $sql = "SELECT * FROM PRODUCTOS WHERE ID=".$producto;
+        $result = $this->db->query($sql)->result();
+        return $result;
+    }
 }

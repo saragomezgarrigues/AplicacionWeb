@@ -47,4 +47,22 @@ class Producto extends CI_Controller{
         $this->producto_model->borrar($producto);
        
     }
+    
+    public function modificar(){
+        //En este caso, será para poder modificar los datos de algún producto porque
+        //nos hemos dado cuenta de que están mal puestos.
+        $this->load->model("producto_model",'',true);
+        $datos['productos'] = $this->producto_model->getData();
+        getplantailla($this, 'producto/modificar',$datos);
+    }
+    
+    public function update(){
+        //Paso 2 de la modificacion: El usuario modifica los datos que ha introducido antes.
+        $this->load->model("producto_model",'',true);
+        $producto = $_POST['producto'];
+        $datos['productos'] = $this->producto_model->getDataProduct($producto);
+        //print_r($datos);
+        //exit("-->");
+        getplantailla($this,'producto/update',$datos);
+    }
 }
