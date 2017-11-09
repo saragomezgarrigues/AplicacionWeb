@@ -1,4 +1,12 @@
 <?php if($productos):?>
+  <script> 
+        $('#btnUpdate').on('click',function(){
+            console.log("Se ha pulsado el boton de modificar datos");
+            var nombre = $("#nombre").val();
+            var precio = $("#precio").val();
+            alert("Nuevos datos: " + "Nombre: " + nombre + "//" + "Precio: " + precio);
+        });
+    </script>  
     <div class="container">
         <fieldset>    	
             <legend>Datos del producto seleccionado ☆</legend>
@@ -22,7 +30,7 @@
                                 <div class="form-group">
                                     <label for="precio" class="col-sm-2 control-label">Precio: </label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="nombre" value="<?php echo $producto->precio?>">
+                                        <input type="text" class="form-control" id="precio" name="precio" value="<?php echo $producto->precio?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -32,7 +40,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                     <button type="button"  id="btnBorrar" class="btn btn-info btn-lg" data-target="#myModal" data-toggle="modal" data-target="#myModal">Modificar Datos</button>
+                                     <button type="button"  id="btnUpdate" class="btn btn-info btn-lg">
+                                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Modificar Datos
+                                     </button>
                                 </div>
                             <?php endforeach;?>
                         </form>

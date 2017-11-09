@@ -36,4 +36,10 @@ class Producto_model extends CI_Model{
         $result = $this->db->query($sql)->result();
         return $result;
     }
+    
+    public function updateProduct($idProduct,$productName,$productPrice){
+        $sql = "UPDATE PRODUCTOS SET nombreP = '$productName', precio = '$productPrice' WHERE ID=$idProduct";
+        $result = $this->db->query($sql)->result();
+        return $result;
+    }
 }
