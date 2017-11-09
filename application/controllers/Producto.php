@@ -63,6 +63,6 @@ class Producto extends CI_Controller{
         $datos['productos'] = $this->producto_model->getDataProduct($producto);
         //print_r($datos);
         //exit("-->");
-        getplantailla($this,'producto/update',$datos);
+        getplantillaAJAX($this,'producto/update',$datos);
     }
 }

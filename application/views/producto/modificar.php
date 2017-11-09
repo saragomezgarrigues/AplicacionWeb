@@ -25,6 +25,12 @@
                         conexion.open('POST','<?php echo base_url()?>Producto/update',true);
                         conexion.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
                         conexion.send(datosSerializados);
+                        conexion.onreadystatechange = function(){
+                            if (conexion.readyState===4 && conexion.status===200) {
+				showData();
+                             }
+                        };
+                        accionAJAX("Los datos del producto están cargados!☆☆");
                     }
                     else{
                        console.log("No se modifica el producto");
@@ -37,6 +43,11 @@
     });
      function accionAJAX(mensaje){
         $('#resultado').text(mensaje);
+       
+    }
+    function showData(){
+        textoRecibido = conexion.responseText;
+	document.getElementById("cargaDatos").innerHTML=textoRecibido;
     }
 </script>
 <div class="container">
@@ -73,5 +84,8 @@
         </div>
     </div>
         </div>
-    </form>
+    </form>  
+</div>
+<div class="form-group" id="cargaDatos">
+            
 </div>
